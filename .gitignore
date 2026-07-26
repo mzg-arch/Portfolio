@@ -1,0 +1,35 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Tests and generated output
+/coverage
+/.next/
+/out/
+/build/
+/dist/
+
+# Local tooling
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+/.node-runtime/
+/.node-portable.zip
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment files (keep the documented template)
+.env*
+!.env.example
+
+# Vercel project linkage
+.vercel
+
+.vercel
+.env*

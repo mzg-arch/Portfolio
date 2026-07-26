@@ -1,0 +1,5 @@
+.next
+.node-runtime
+node_modules
+public/resume
+package-lock.json

@@ -1,0 +1,6 @@
+{
+  "plugins": [],
+  "printWidth": 90,
+  "proseWrap": "always",
+  "trailingComma": "all"
+}
