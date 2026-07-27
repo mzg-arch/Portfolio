@@ -278,8 +278,8 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Featured projects"
-              title="Two applications, built around real workflows."
-              description="These projects reflect my work across interface design, API development, data modeling, authentication, and deployment."
+              title="Applications built around real workflows."
+              description="These projects reflect my work across interface design, API development, data modeling, authentication, collaboration, and deployment."
             />
           </Reveal>
 
@@ -341,28 +341,28 @@ export default function Home() {
                       ))}
                     </div>
 
-                    <div className="mt-auto flex flex-wrap gap-5 pt-9">
-                      <a
-                        href={project.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
-                      >
-                        <GitHubIcon className="size-4" />
-                        {project.sourceLabel}
-                        <ArrowUpRightIcon className="size-4" />
-                      </a>
+                    <div className="mt-auto flex flex-wrap items-center gap-3 pt-9">
                       {project.liveUrl ? (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
+                          className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-4 py-2.5 text-sm font-semibold text-[var(--background)] transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-[var(--accent)]"
                         >
-                          Live demo
+                          Visit live site
                           <ArrowUpRightIcon className="size-4" />
                         </a>
                       ) : null}
+                      <a
+                        href={project.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] transition-[transform,border-color,color] hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                      >
+                        <GitHubIcon className="size-4" />
+                        {project.sourceLabel}
+                        <ArrowUpRightIcon className="size-4" />
+                      </a>
                     </div>
                   </div>
                 </article>

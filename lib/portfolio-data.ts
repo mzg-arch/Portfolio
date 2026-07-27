@@ -96,7 +96,7 @@ export const socialLinks = [
 export const experience = [
   {
     title: "Full-Stack Project Development",
-    context: "InventoryPro and Nexora",
+    context: "InventoryPro, Nexora, and NextBoard",
     type: "Project-based experience",
     summary:
       "Designed and built web applications spanning responsive interfaces, REST APIs, relational data models, authentication, and cloud deployment.",
@@ -104,6 +104,7 @@ export const experience = [
       "Built reusable, responsive interfaces with React, Next.js, TypeScript, and Tailwind CSS.",
       "Designed REST API routes, relational data models, and server-side validation workflows.",
       "Implemented secure JWT authentication and protected, role-aware application routes for InventoryPro.",
+      "Built a persistent Kanban workflow with Supabase authentication, row-level security, task collaboration, and drag-and-drop interactions.",
       "Deployed InventoryPro using Vercel for the frontend and Railway for the backend and PostgreSQL database.",
     ],
   },
@@ -151,6 +152,31 @@ export const projects = [
     sourceLabel: "View repository",
     liveUrl: null,
   },
+  {
+    name: "NextBoard",
+    subtitle: "Collaborative Kanban Workspace",
+    description:
+      "A responsive task-management workspace with persistent boards, guest authentication, team assignments, comments, and activity history.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "dnd-kit",
+      "Tailwind CSS",
+      "Zod",
+    ],
+    highlights: [
+      "Built a four-stage Kanban board with mouse, touch, and keyboard drag-and-drop interactions and persistent task ordering.",
+      "Added task search and filters for priority, assignee, and labels, along with due dates and multi-member assignments.",
+      "Implemented anonymous Supabase authentication and row-level security to isolate each user's task and team data.",
+      "Added task comments and an activity timeline, then deployed the application on Vercel.",
+    ],
+    status: "Deployed",
+    sourceUrl: "https://github.com/mzg-arch/nextplay-board",
+    sourceLabel: "View repository",
+    liveUrl: "https://nextplay-board.vercel.app",
+  },
 ] as const satisfies readonly Project[];
 
 export const skillGroups = [
@@ -181,7 +207,16 @@ export const skillGroups = [
   },
   {
     category: "Databases & Tools",
-    skills: ["PostgreSQL", "Prisma ORM", "Git", "GitHub", "Postman", "Vercel", "Railway"],
+    skills: [
+      "PostgreSQL",
+      "Supabase",
+      "Prisma ORM",
+      "Git",
+      "GitHub",
+      "Postman",
+      "Vercel",
+      "Railway",
+    ],
   },
 ] as const satisfies readonly SkillGroup[];
 
