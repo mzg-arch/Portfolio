@@ -134,7 +134,7 @@ export const projects = [
     status: "Deployed",
     sourceUrl: "https://github.com/mzg-arch/InventoryPro",
     sourceLabel: "View repository",
-    liveUrl: null,
+    liveUrl: "https://inventorypro-dun.vercel.app/login",
   },
   {
     name: "Nexora",
