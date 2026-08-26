@@ -96,7 +96,7 @@ export const socialLinks = [
 export const experience = [
   {
     title: "Full-Stack Project Development",
-    context: "InventoryPro, Nexora, and NextBoard",
+    context: "InventoryPro, NextBoard, DevScope, and Nexora",
     type: "Project-based experience",
     summary:
       "Designed and built web applications spanning responsive interfaces, REST APIs, relational data models, authentication, and cloud deployment.",
@@ -134,23 +134,7 @@ export const projects = [
     status: "Deployed",
     sourceUrl: "https://github.com/mzg-arch/InventoryPro",
     sourceLabel: "View repository",
-    liveUrl: "https://inventorypro-dun.vercel.app/login",
-  },
-  {
-    name: "Nexora",
-    subtitle: "Client Management Platform",
-    description:
-      "A full-stack, SaaS-style client management platform covering authentication, client records, follow-ups, activity logs, account settings, and dashboard workflows.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "ShadCN UI"],
-    highlights: [
-      "Built reusable interface components and responsive client-management layouts for desktop and mobile.",
-      "Implemented a RESTful client API and structured models for clients, tasks, notes, and AI-assisted follow-ups.",
-      "Organized pages and components to support maintainable feature expansion and a consistent interface.",
-    ],
-    status: "Work in Progress",
-    sourceUrl: "https://github.com/mzg-arch/Nexora",
-    sourceLabel: "View repository",
-    liveUrl: null,
+    liveUrl: "https://inventorypro-dun.vercel.app",
   },
   {
     name: "NextBoard",
@@ -177,6 +161,48 @@ export const projects = [
     sourceLabel: "View repository",
     liveUrl: "https://nextplay-board.vercel.app",
   },
+  {
+    name: "DevScope",
+    subtitle: "AI-Powered Repository Analyzer",
+    description:
+      "A full-stack tool that helps developers understand unfamiliar public GitHub repositories through file-tree exploration, technology detection, architecture views, and AI-generated explanations.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "GitHub REST API",
+      "Google Gemini API",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
+    highlights: [
+      "Built a repository analysis workflow that retrieves verified metadata and code structure from the GitHub REST API.",
+      "Created searchable file-tree and architecture views for exploring unfamiliar codebases.",
+      "Integrated Google Gemini to generate explanations grounded in repository data and supporting file paths.",
+      "Designed responsive loading, validation, and error states for the analysis dashboard.",
+    ],
+    status: "Deployed",
+    sourceUrl: "https://github.com/mzg-arch/DevScope",
+    sourceLabel: "View repository",
+    liveUrl: "https://devscope-six.vercel.app",
+  },
+  {
+    name: "Nexora",
+    subtitle: "Client Management Platform",
+    description:
+      "A full-stack, SaaS-style client management platform covering authentication, client records, follow-ups, activity logs, account settings, and dashboard workflows.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "ShadCN UI"],
+    highlights: [
+      "Built reusable interface components and responsive client-management layouts for desktop and mobile.",
+      "Implemented a RESTful client API and structured models for clients, tasks, notes, and AI-assisted follow-ups.",
+      "Organized pages and components to support maintainable feature expansion and a consistent interface.",
+    ],
+    status: "Work in Progress",
+    sourceUrl: "https://github.com/mzg-arch/Nexora",
+    sourceLabel: "View repository",
+    liveUrl: null,
+  },
 ] as const satisfies readonly Project[];
 
 export const skillGroups = [
@@ -200,6 +226,7 @@ export const skillGroups = [
     skills: [
       "Node.js",
       "Express.js",
+      "NestJS",
       "REST APIs",
       "JWT Authentication",
       "Server-Side Validation",
