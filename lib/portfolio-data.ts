@@ -23,6 +23,8 @@ export interface Project {
   name: string;
   subtitle: string;
   description: string;
+  imageSrc: string | null;
+  imageAlt: string;
   technologies: readonly string[];
   highlights: readonly string[];
   status: ProjectStatus;
@@ -96,7 +98,7 @@ export const socialLinks = [
 export const experience = [
   {
     title: "Full-Stack Project Development",
-    context: "InventoryPro, NextBoard, DevScope, and Nexora",
+    context: "CodeSprint, DevScope, InventoryPro, NextBoard, and Nexora",
     type: "Project-based experience",
     summary:
       "Designed and built web applications spanning responsive interfaces, REST APIs, relational data models, authentication, and cloud deployment.",
@@ -105,6 +107,7 @@ export const experience = [
       "Designed REST API routes, relational data models, and server-side validation workflows.",
       "Implemented secure JWT authentication and protected, role-aware application routes for InventoryPro.",
       "Built a persistent Kanban workflow with Supabase authentication, row-level security, task collaboration, and drag-and-drop interactions.",
+      "Developed CodeSprint as a full-stack interview-practice platform with a code editor, authenticated progress tracking, and queued code execution.",
       "Deployed InventoryPro using Vercel for the frontend and Railway for the backend and PostgreSQL database.",
     ],
   },
@@ -112,10 +115,40 @@ export const experience = [
 
 export const projects = [
   {
+    name: "CodeSprint",
+    subtitle: "Coding Interview Practice Platform",
+    description:
+      "An open-source learning platform for practicing programming problems, running solutions, reviewing results, and tracking interview-preparation progress.",
+    imageSrc: "/projects/codesprint.png",
+    imageAlt: "CodeSprint home page showing its coding interview practice workspace",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+      "BullMQ",
+      "Monaco Editor",
+    ],
+    highlights: [
+      "Built a responsive problem library and Monaco-powered workspace for writing, running, and submitting solutions.",
+      "Implemented JWT authentication, protected user pages, and progress and submission history.",
+      "Separated the web app, API, database package, and judge worker in a Turborepo monorepo.",
+      "Added queued code execution with BullMQ and Redis, including validation and structured feedback.",
+    ],
+    status: "Deployed",
+    sourceUrl: "https://github.com/mzg-arch/open-source-codesprint",
+    sourceLabel: "View repository",
+    liveUrl: "https://codesprint-theta.vercel.app",
+  },
+  {
     name: "InventoryPro",
     subtitle: "Inventory Management System",
     description:
       "A full-stack inventory platform with secure authentication, role-aware access, and a responsive dashboard for managing products and suppliers.",
+    imageSrc: "/projects/inventorypro.png",
+    imageAlt: "InventoryPro home page with an inventory dashboard preview",
     technologies: [
       "Next.js",
       "Node.js",
@@ -141,6 +174,9 @@ export const projects = [
     subtitle: "Collaborative Kanban Workspace",
     description:
       "A responsive task-management workspace with persistent boards, guest authentication, team assignments, comments, and activity history.",
+    imageSrc: "/projects/nextboard-repository.png",
+    imageAlt:
+      "NextBoard GitHub repository showing the project structure and technology summary",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -166,6 +202,8 @@ export const projects = [
     subtitle: "AI-Powered Repository Analyzer",
     description:
       "A full-stack tool that helps developers understand unfamiliar public GitHub repositories through file-tree exploration, technology detection, architecture views, and AI-generated explanations.",
+    imageSrc: "/projects/devscope.png",
+    imageAlt: "DevScope home page with its public repository analysis input",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -192,6 +230,8 @@ export const projects = [
     subtitle: "Client Management Platform",
     description:
       "A full-stack, SaaS-style client management platform covering authentication, client records, follow-ups, activity logs, account settings, and dashboard workflows.",
+    imageSrc: null,
+    imageAlt: "",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "ShadCN UI"],
     highlights: [
       "Built reusable interface components and responsive client-management layouts for desktop and mobile.",
@@ -227,6 +267,7 @@ export const skillGroups = [
       "Node.js",
       "Express.js",
       "NestJS",
+      "BullMQ",
       "REST APIs",
       "JWT Authentication",
       "Server-Side Validation",
@@ -238,6 +279,7 @@ export const skillGroups = [
       "PostgreSQL",
       "Supabase",
       "Prisma ORM",
+      "Redis",
       "Git",
       "GitHub",
       "Postman",

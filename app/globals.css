@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f6f7;
+  --background: #f3f4f6;
   --surface: #fbfbfc;
   --surface-elevated: #ffffff;
-  --surface-subtle: #eceef1;
-  --surface-muted: #e2e5e9;
+  --surface-subtle: #e9ebef;
+  --surface-muted: #dfe3e8;
   --foreground: #191b1f;
   --foreground-soft: #41464e;
   --muted: #5f656e;
@@ -15,7 +15,8 @@
   --accent: #2f58d4;
   --accent-dark: #2749b9;
   --accent-soft: #edf1ff;
-  --shadow: 0 18px 45px -30px rgb(25 29 35 / 0.36);
+  --shadow: 0 20px 52px -36px rgb(25 29 35 / 0.42);
+  --shadow-hover: 0 30px 70px -40px rgb(25 29 35 / 0.52);
 }
 
 * {
@@ -91,10 +92,24 @@ a {
   box-shadow: var(--shadow);
 }
 
+.project-card {
+  isolation: isolate;
+}
+
+.project-preview {
+  aspect-ratio: 16 / 10;
+}
+
+.project-preview:focus-visible {
+  outline-offset: -4px;
+}
+
 .hero-grid {
   background:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px), var(--background);
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    radial-gradient(circle at 78% 28%, rgb(47 88 212 / 0.08), transparent 24rem),
+    var(--background);
   background-size: 48px 48px;
 }
 

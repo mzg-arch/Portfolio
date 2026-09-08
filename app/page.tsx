@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import {
   ArrowRightIcon,
@@ -194,11 +195,11 @@ export default function Home() {
                   {profile.about}
                 </p>
                 <p className="mt-6 max-w-3xl text-pretty leading-7 text-[var(--muted)]">
-                  Through InventoryPro and Nexora, I&apos;ve worked on the pieces that
-                  connect a product: reusable interfaces, authentication, API routes, data
-                  models, validation, and deployment. That end-to-end view is the
-                  direction I want to keep developing in future software engineering and
-                  web development roles.
+                  Across CodeSprint, DevScope, InventoryPro, NextBoard, and Nexora,
+                  I&apos;ve worked on the pieces that connect a product: reusable
+                  interfaces, authentication, API routes, data models, validation, and
+                  deployment. That end-to-end view is the direction I want to keep
+                  developing in future software engineering and web development roles.
                 </p>
 
                 <ul className="mt-10 grid gap-px overflow-hidden border-y border-[var(--border-strong)] bg-[var(--border-strong)] sm:grid-cols-2 lg:grid-cols-4">
@@ -285,9 +286,59 @@ export default function Home() {
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {projects.map((project, index) => (
-              <Reveal key={project.name} delay={index * 90} className="h-full">
-                <article className="surface-card group flex h-full flex-col overflow-hidden transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_24px_55px_-30px_rgb(25_26_28/0.38)]">
-                  <div className="flex items-start justify-between border-b border-[var(--border)] p-6 sm:p-8">
+              <Reveal
+                key={project.name}
+                delay={index * 70}
+                className={`h-full ${index === 0 ? "lg:col-span-2" : ""}`}
+              >
+                <article className="surface-card project-card group flex h-full flex-col overflow-hidden transition-[transform,box-shadow,border-color] hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-hover)]">
+                  {project.imageSrc ? (
+                    <a
+                      href={project.liveUrl ?? "#"}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`project-preview block overflow-hidden border-b border-[var(--border)] bg-[var(--surface-muted)] ${index === 0 ? "lg:aspect-[2.35/1]" : ""}`}
+                      aria-label={`Open ${project.name} ${project.liveUrl ? "live site" : "repository"}`}
+                    >
+                      <div
+                        className="flex h-9 items-center gap-1.5 border-b border-black/10 bg-white/90 px-4"
+                        aria-hidden="true"
+                      >
+                        <span className="size-2 rounded-full bg-slate-300" />
+                        <span className="size-2 rounded-full bg-slate-300" />
+                        <span className="size-2 rounded-full bg-[var(--accent)]/45" />
+                        <span className="ml-3 truncate font-mono text-[0.65rem] text-slate-500">
+                          {project.liveUrl?.replace(/^https?:\/\//, "") ?? "github.com"}
+                        </span>
+                      </div>
+                      <div className="relative h-[calc(100%-2.25rem)] overflow-hidden">
+                        <Image
+                          src={project.imageSrc}
+                          alt={project.imageAlt}
+                          fill
+                          sizes={
+                            index === 0
+                              ? "(min-width: 1024px) 1152px, 100vw"
+                              : "(min-width: 1024px) 560px, 100vw"
+                          }
+                          className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.025]"
+                        />
+                        <div
+                          className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/15 to-transparent"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="flex min-h-36 items-end border-b border-[var(--border)] bg-[var(--surface-muted)] p-6 sm:p-8">
+                      <p className="max-w-sm text-sm leading-6 text-[var(--muted)]">
+                        Development is ongoing. A visual preview will be added when the
+                        project is ready to present.
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="flex items-start justify-between border-b border-[var(--border)] px-6 py-4 sm:px-8">
                     <span className="font-mono text-sm text-[var(--muted)]">
                       0{index + 1}
                     </span>
