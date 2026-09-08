@@ -77,6 +77,11 @@ a {
   margin-inline: auto;
 }
 
+.projects-shell {
+  width: min(calc(100% - 2rem), 84rem);
+  margin-inline: auto;
+}
+
 .section-shell {
   padding-block: 5.5rem;
 }
@@ -96,8 +101,13 @@ a {
   isolation: isolate;
 }
 
+.project-showcase {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 0.9), transparent 55%), #e7ebf0;
+}
+
 .project-preview {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9.5;
 }
 
 .project-preview:focus-visible {
@@ -170,6 +180,10 @@ a {
 @media (max-width: 40rem) {
   .page-shell {
     width: min(calc(100% - 1.25rem), 72rem);
+  }
+
+  .projects-shell {
+    width: min(calc(100% - 1.25rem), 84rem);
   }
 
   .section-shell {

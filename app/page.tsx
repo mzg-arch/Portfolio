@@ -275,144 +275,112 @@ export default function Home() {
       </section>
 
       <section id="projects" className="section-divider bg-[var(--surface-subtle)]">
-        <div className="page-shell section-shell">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Featured projects"
-              title="Applications built around real workflows."
-              description="These projects reflect my work across interface design, API development, data modeling, authentication, collaboration, and deployment."
-            />
+        <div className="projects-shell section-shell">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center before:hidden">Selected work</p>
+            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              Projects I’ve built
+            </h2>
+            <p className="mt-4 text-pretty leading-7 text-[var(--muted)]">
+              A selection of full-stack applications built while learning, solving
+              practical problems, and improving how I approach software development.
+            </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <Reveal
-                key={project.name}
-                delay={index * 70}
-                className={`h-full ${index === 0 ? "lg:col-span-2" : ""}`}
-              >
-                <article className="surface-card project-card group flex h-full flex-col overflow-hidden transition-[transform,box-shadow,border-color] hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-hover)]">
-                  {project.imageSrc ? (
-                    <a
-                      href={project.liveUrl ?? "#"}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`project-preview block overflow-hidden border-b border-[var(--border)] bg-[var(--surface-muted)] ${index === 0 ? "lg:aspect-[2.35/1]" : ""}`}
-                      aria-label={`Open ${project.name} ${project.liveUrl ? "live site" : "repository"}`}
-                    >
-                      <div
-                        className="flex h-9 items-center gap-1.5 border-b border-black/10 bg-white/90 px-4"
-                        aria-hidden="true"
+              <Reveal key={project.name} delay={index * 70} className="h-full">
+                <article className="project-card group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-[var(--border)] bg-[var(--surface-elevated)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-hover)]">
+                  <div className="project-showcase relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-[var(--border)] p-4 sm:p-5">
+                    <div className="absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 shadow-sm backdrop-blur-sm">
+                      <span className="grid size-5 place-items-center rounded-md bg-[var(--foreground)] font-mono text-[0.6rem] font-bold text-white">
+                        {project.name.charAt(0)}
+                      </span>
+                      <span className="text-xs font-semibold text-[var(--foreground)]">
+                        {project.name}
+                      </span>
+                    </div>
+
+                    {project.imageSrc ? (
+                      <a
+                        href={project.liveUrl ?? "#"}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-preview relative mt-8 block w-full overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_16px_35px_-18px_rgb(15_23_42/0.65)]"
+                        aria-label={`Open ${project.name} ${project.liveUrl ? "live site" : "repository"}`}
                       >
-                        <span className="size-2 rounded-full bg-slate-300" />
-                        <span className="size-2 rounded-full bg-slate-300" />
-                        <span className="size-2 rounded-full bg-[var(--accent)]/45" />
-                        <span className="ml-3 truncate font-mono text-[0.65rem] text-slate-500">
-                          {project.liveUrl?.replace(/^https?:\/\//, "") ?? "github.com"}
-                        </span>
-                      </div>
-                      <div className="relative h-[calc(100%-2.25rem)] overflow-hidden">
                         <Image
                           src={project.imageSrc}
                           alt={project.imageAlt}
                           fill
-                          sizes={
-                            index === 0
-                              ? "(min-width: 1024px) 1152px, 100vw"
-                              : "(min-width: 1024px) 560px, 100vw"
-                          }
+                          sizes="(min-width: 1024px) 350px, (min-width: 768px) 48vw, 100vw"
                           className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.025]"
                         />
-                        <div
-                          className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/15 to-transparent"
-                          aria-hidden="true"
-                        />
+                      </a>
+                    ) : (
+                      <div className="mt-8 flex aspect-[16/10] w-full items-center justify-center rounded-lg border border-dashed border-[var(--border-strong)] bg-white/60 px-8 text-center shadow-sm">
+                        <div>
+                          <span className="mx-auto grid size-10 place-items-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
+                            <CodeIcon className="size-5" />
+                          </span>
+                          <p className="mt-3 text-sm font-medium text-[var(--foreground-soft)]">
+                            Currently in development
+                          </p>
+                        </div>
                       </div>
-                    </a>
-                  ) : (
-                    <div className="flex min-h-36 items-end border-b border-[var(--border)] bg-[var(--surface-muted)] p-6 sm:p-8">
-                      <p className="max-w-sm text-sm leading-6 text-[var(--muted)]">
-                        Development is ongoing. A visual preview will be added when the
-                        project is ready to present.
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="flex items-start justify-between border-b border-[var(--border)] px-6 py-4 sm:px-8">
-                    <span className="font-mono text-sm text-[var(--muted)]">
-                      0{index + 1}
-                    </span>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                        project.status === "Work in Progress"
-                          ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                          : "bg-[var(--surface-muted)] text-[var(--muted)]"
-                      }`}
-                    >
-                      {project.status}
-                    </span>
+                    )}
                   </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
-                      {project.subtitle}
-                    </p>
-                    <h3 className="mt-2 text-3xl font-semibold tracking-[-0.04em]">
-                      {project.name}
-                    </h3>
-                    <p className="mt-4 text-pretty leading-7 text-[var(--muted)]">
+
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-xl font-semibold tracking-[-0.025em]">
+                          {project.name}
+                        </h3>
+                        <p className="mt-1 text-xs font-medium uppercase tracking-[0.1em] text-[var(--muted)]">
+                          {project.subtitle}
+                        </p>
+                      </div>
+                      {project.status === "Work in Progress" ? (
+                        <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.68rem] font-semibold text-[var(--accent)]">
+                          Work in Progress
+                        </span>
+                      ) : null}
+                    </div>
+
+                    <p className="mt-4 line-clamp-3 text-sm leading-6 text-[var(--muted)]">
                       {project.description}
                     </p>
 
-                    <ul
-                      className="mt-7 grid gap-3"
-                      aria-label={`${project.name} highlights`}
-                    >
-                      {project.highlights.map((highlight) => (
-                        <li key={highlight} className="flex gap-3 text-sm leading-6">
-                          <span
-                            className="mt-[0.65rem] size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
-                            aria-hidden="true"
-                          />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="mt-4 text-xs leading-5 text-[var(--foreground-soft)]">
+                      {project.highlights[0]}
+                    </p>
 
-                    <div
-                      className="mt-8 flex flex-wrap gap-2"
-                      aria-label={`${project.name} technologies`}
-                    >
-                      {project.technologies.map((technology) => (
-                        <span
-                          key={technology}
-                          className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-xs font-medium text-[var(--muted)]"
-                        >
-                          {technology}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="mt-4 border-t border-[var(--border)] pt-4 text-xs leading-5 text-[var(--muted)]">
+                      {project.technologies.join(" · ")}
+                    </p>
 
-                    <div className="mt-auto flex flex-wrap items-center gap-3 pt-9">
+                    <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-6">
                       {project.liveUrl ? (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-4 py-2.5 text-sm font-semibold text-[var(--background)] transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-[var(--accent)]"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
                         >
                           Visit live site
-                          <ArrowUpRightIcon className="size-4" />
+                          <ArrowUpRightIcon className="size-3.5" />
                         </a>
                       ) : null}
                       <a
                         href={project.sourceUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm font-semibold text-[var(--foreground)] transition-[transform,border-color,color] hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
                       >
-                        <GitHubIcon className="size-4" />
+                        <GitHubIcon className="size-3.5" />
                         {project.sourceLabel}
-                        <ArrowUpRightIcon className="size-4" />
+                        <ArrowUpRightIcon className="size-3.5" />
                       </a>
                     </div>
                   </div>

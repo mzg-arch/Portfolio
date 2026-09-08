@@ -174,9 +174,9 @@ export const projects = [
     subtitle: "Collaborative Kanban Workspace",
     description:
       "A responsive task-management workspace with persistent boards, guest authentication, team assignments, comments, and activity history.",
-    imageSrc: "/projects/nextboard-repository.png",
+    imageSrc: "/projects/nextboard.png",
     imageAlt:
-      "NextBoard GitHub repository showing the project structure and technology summary",
+      "NextBoard project workspace showing task counters, filters, members, and four Kanban columns",
     technologies: [
       "Next.js",
       "TypeScript",
