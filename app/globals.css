@@ -96,8 +96,13 @@ a {
   isolation: isolate;
 }
 
+.project-showcase {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 0.9), transparent 55%), #e7ebf0;
+}
+
 .project-preview {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9.5;
 }
 
 .project-preview:focus-visible {
