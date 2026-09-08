@@ -8,7 +8,7 @@ includes a server-side contact form that sends mail through the Resend REST API.
 
 - Node.js 20.9 or newer
 - npm (included with Node.js)
-- A Resend account for contact-form delivery
+- A Resend account for contact form delivery
 
 ## Local setup
 
