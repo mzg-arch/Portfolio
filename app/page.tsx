@@ -275,7 +275,7 @@ export default function Home() {
       </section>
 
       <section id="projects" className="section-divider bg-[var(--surface-subtle)]">
-        <div className="page-shell section-shell">
+        <div className="projects-shell section-shell">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center before:hidden">Selected work</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
